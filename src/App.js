@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react"
 
-function App() {
+export default function Counter() {
+  // State: a counter value
+  const [counter, setCounter] = useState(0)
+
+  // Action: code that causes an update to the state when something happens
+  const increment = () => {
+    setCounter(previousCounter => ++previousCounter)
+  }
+  
+  // View: the UI definition
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>
+      Value: {counter} <button onClick={increment}>Increment</button>
+      </h1>
+      
     </div>
-  );
+  )
 }
-
-export default App;
